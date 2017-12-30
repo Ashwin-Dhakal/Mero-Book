@@ -9,28 +9,28 @@ ST_CHOICES = (
         ('Reserved', 'Reserved'),
     )
 EDITION_CHOICES=(
-    ('first','first'),
-    ('second', 'second'),
-    ('third', 'third'),
-    ('forth', 'forth'),
-    ('fifth', 'fifth'),
-    ('sixth', 'sixth'),
-    ('seventh', 'seventh'),
-    ('eighth', 'eighth'),
-    ('ninth', 'ninth'),
-    ('tenth', 'tenth'),
+    ('First','First'),
+    ('Second', 'Second'),
+    ('Third', 'Third'),
+    ('Forth', 'Forth'),
+    ('Fifth', 'Fifth'),
+    ('Sixth', 'Sixth'),
+    ('Seventh', 'Seventh'),
+    ('Eighth', 'Eighth'),
+    ('Ninth', 'Ninth'),
+    ('Tenth', 'Tenth'),
 
 )
 
 class Details(models.Model):
     user= models.ForeignKey(settings.AUTH_USER_MODEL, null=True)
     Name = models.CharField(max_length=200)
-    Class= models.PositiveSmallIntegerField(default=5, validators=[MaxValueValidator(12), MinValueValidator(1)])
+    Class= models.IntegerField(validators=[MaxValueValidator(13), MinValueValidator(1)])
     Publisher= models.CharField(max_length=200)
-    Edition= models.CharField(max_length=10, choices=EDITION_CHOICES, default='first')
-    Status= models.CharField(max_length=10, choices=ST_CHOICES, default='Open')
+    Edition= models.CharField(max_length=10, choices=EDITION_CHOICES)
+    Status= models.CharField(max_length=10, choices=ST_CHOICES)
     Your_District= models.CharField(max_length=100)
-    Ward_number= models.PositiveSmallIntegerField(default='1')
+    Ward_number= models.IntegerField(validators=[MaxValueValidator(36), MinValueValidator(1)])
     Phone_number= models.CharField(max_length=100)
 
 

@@ -123,10 +123,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+#     # '/var/www/static/',
+# ]
+# STATIC_ROOT = os.path.join((BASE_DIR), "static_cdn")
+# MEDIA_URL= "/media/"
+# MEDIA_ROOT = os.path.join((BASE_DIR), "media_cdn")
 
-EMAIL_HOST = 'server6.websnp.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'ashwin@techunboxin.com'
-EMAIL_HOST_PASSWORD = '%%%this is what i c0ll ridiculous maN_N'
-EMAIL_USE_TLS = True

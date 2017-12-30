@@ -21,7 +21,7 @@ def login_view(request):
         if next:
             return redirect(next)
         return redirect("/")
-    return render(request, "donate/login_form.html", {"form":form, "title": title})
+    return render(request, "donate/login.html", {"form":form, "title": title})
 
 
 def register_view(request):
@@ -45,7 +45,7 @@ def register_view(request):
         "form": form,
         "title": title
     }
-    return render(request, "donate/reg_form.html", context)
+    return render(request, "donate/register.html", context)
 
 
 def logout_view(request):

@@ -1,4 +1,6 @@
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.conf.urls import include, url
 
 from donate import views as donate_views
@@ -23,8 +25,13 @@ urlpatterns = [
     url(r'^search_list/$', donate_views.search_list, name='search_list'),
 
     url(r'^profile/$', donate_views.profile, name='profile'),
-    url(r'^success/$', donate_views.success, name='success'),
-
+    url(r'^test/$', donate_views.test, name='test'),
     url(r'^contributer_board/$', donate_views.contributer_board, name='contributer_board'),
 
 ]
+
+
+#
+# if settings.DEBUG:
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,336 @@
+<!------------------- From Bootstrap -------------------------------------->\
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Hamro Kitab</title>
+
+
+    <link href="{% static 'donate/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'donate/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel = "stylesheet" href="{% static 'donate/css/donate_book.css' %}">
+    <link rel="stylesheet" href="{% static 'donate/css/animate.min.css' %}">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+
+
+
+
+<!--------------------NAVIGATION----------------------------->
+
+
+    <div id="myNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type = "button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+
+                </button>
+
+                 <a href="{% url 'index' %}" class="navbar-brand">Hamro Kitab</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'donate_book' %}">Donate Book</a></li>
+
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'profile' %}">Profile</a></li>
+                    {% endif %}
+
+                    {% if not user.is_authenticated %}
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    {% endif %}
+
+
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% endif %}
+
+                    <li><a href="#contact">Contact us</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+ <!------------------------ End Navigation --------------------------->
+
+<!---------------------------     mathi ko text---------------------->
+      <form method="GET" action="#">
+      <div id="mathi" class="mathi">
+          <div class="container">
+              <div class="row">
+                  <h2 class="wow fadeInUp">Donate here</h2>
+                  <p class="wow fadeInUp" data-wow-delay="0.4s"><strong>{{request.user}}</strong>, fill up the form and upload your books</p>
+
+
+
+
+
+
+
+              </div>
+          </div>
+      </div>
+
+
+
+
+
+      </form>
+
+<!---------------------------      End---------------------->
+
+
+   <!---------------      book ko detail---------------------------->
+
+     <div class="book_ko_detail">
+      <div class="container">
+
+
+          <div class="col-lg-4 col-md-4"></div>
+
+          <div class="border hvr-float col-lg-4 col-md-4 wow fadeInUp" data-wow-delay="0.1s ">
+
+              <form method="POST" action="">
+                    {% csrf_token %}
+
+            <div id="search" class="search">
+
+                <div class="input-group input-group-lg">
+                          <span class="input-group-addon" id-sizing-addon1><i class="fa fa-book" aria-hidden="true"></i></span>
+                          <input type="text" name="Name" class="form-control" aria-describeby="sizing-addon1"  required="" id="id_Name" placeholder="Name of book"
+                         {% if form.Name.value %}
+                    value="{{form.Name.value}}"
+                                {% endif %}
+                                    >
+
+                 </div>
+
+
+               <div class="input-group input-group-lg ">
+                          <span class="input-group-addon" id-sizing-addon1><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+                        <select class="form-control"  required="" name = "Class">
+                            <option value="" disabled selected>class</option>
+                            {% for i in class_count %}
+                            <option value="{{i}}"
+                                    {% if form.Class.value == i %}
+                                    selected
+                                    {% endif %}
+                            >{{i}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+              <div class="input-group input-group-lg">
+                          <span class="input-group-addon" id-sizing-addon1><i class="fa fa-street-view" aria-hidden="true"></i></span>
+                          <input type="text" name="Publisher" class="form-control" aria-describeby="sizing-addon1" required="" placeholder="Publisher"
+                                 {% if form.Publisher.value %}
+                                value="{{form.Publisher.value}}"
+                                        {% endif %}
+                                     >
+
+
+                    </div>
+
+              <div class="input-group input-group-lg" >
+                          <span class="input-group-addon" id-sizing-addon1><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+                        <select class="form-control" required="" name = "Edition">
+                            <option value="" disabled selected>Edition</option>
+                            <option value = "First"
+                                    {% if form.Edition.value == 'First' %}
+                                    selected
+                                    {% endif %}
+                            >First</option>
+
+                           <option value = "Second"
+                                    {% if form.Edition.value == 'Second' %}
+                                    selected
+                                    {% endif %}
+                            >Second</option>
+                            <option value = "Third"
+                                    {% if form.Edition.value == 'Third' %}
+                                    selected
+                                    {% endif %}
+                            >Third</option>
+                            <option value = "Forth"
+                                    {% if form.Edition.value == 'Forth' %}
+                                    selected
+                                    {% endif %}
+                            >Forth</option>
+                            <option value = "Fifth"
+                                    {% if form.Edition.value == 'Fifth' %}
+                                    selected
+                                    {% endif %}
+                            >Fifth</option>
+                            <option value = "Sixth"
+                                    {% if form.Edition.value == 'Sixth' %}
+                                    selected
+                                    {% endif %}
+                            >Sixth</option>
+                            <option value = "Seventh"
+                                    {% if form.Edition.value == 'Seventh' %}
+                                    selected
+                                    {% endif %}
+                            >Seventh</option>
+                            <option value = "Eighth"
+                                    {% if form.Edition.value == 'Eighth' %}
+                                    selected
+                                    {% endif %}
+                            >Eighth</option>
+                            <option value = "Ninth"
+                                    {% if form.Edition.value == 'Ninth' %}
+                                    selected
+                                    {% endif %}
+                            >Ninth</option>
+                            <option value = "Tenth"
+                                    {% if form.Edition.value == 'Tenth' %}
+                                    selected
+                                    {% endif %}
+                            >Tenth</option>
+
+                        </select>
+
+
+                    </div>
+
+
+              <div class="input-group input-group-lg ">
+                          <span class="input-group-addon" id-sizing-addon1><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
+                        <select class="form-control" required="" name = "Status">
+                            <option value="" disabled selected>status</option>
+                             {% if form.Status.value %}
+                            <option value="{{form.Status.value}}" selected> {{form.Status.value}}</option>
+                            {% endif %}
+                            <option value = "Open">Open</option>
+                            <option value = "Reserved">Reserved</option>
+
+                        </select>
+
+
+                    </div>
+              <div class="input-group input-group-lg " >
+                          <span class="input-group-addon" id-sizing-addon1><i class="fa fa-street-view" aria-hidden="true"></i></span>
+                          <input type="text" name="Your_District" class="form-control" aria-describeby="sizing-addon1" required="" placeholder="District"
+                                 {% if form.Your_District.value %}
+                                   value="{{form.Your_District.value}}"
+                                {% endif %}
+                                 >
+
+                    </div>
+                        <div class="input-group input-group-lg ">
+                          <span class="input-group-addon" id-sizing-addon1><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                         <select class="form-control" required=""  name = "Ward_number">
+                            <option value="" disabled selected>Ward</option>
+                             {% for i in ward_count %}
+                                <option value = "{{i}}"
+                                        {% if form.Ward_number.value == i %}
+                                        selected
+                                        {% endif %}
+
+                                >{{i}}</option>
+                             {% endfor %}
+
+                        </select>
+
+
+                        </div>
+
+
+               <div class="input-group input-group-lg ">
+                          <span class="input-group-addon" id-sizing-addon1><i class="fa fa-street-view" aria-hidden="true"></i></span>
+                          <input type="text" name="Phone_number" class="form-control" aria-describeby="sizing-addon1" required="" placeholder="Phone Number"
+                                 {% if form.Phone_number.value %}
+                                     value="{{form.Phone_number.value}}"
+                                {% endif %}
+                                 >
+
+
+                    </div>
+                <button class="btn btn-lg " > SUBMIT</button>
+
+
+          </div>
+
+      </form>
+
+          <div class="col-lg-4 col-md-4"></div>
+
+
+
+
+     </div>
+
+
+      </div>
+          </div>
+
+
+
+
+<!---------------End  book ko detail---------------------------->
+
+
+  <!---Footer--->
+
+              <div id="footer" class="footer">
+                  <div class="container">
+                      <div class="row">
+                          <div class="col-lg-4 col-md-4">
+                              <h4 class="wow fadeInUp">Contact Us</h4>
+                              <p><i class="fa fa-home" aria hidden="true"></i>  Lamachaur-16,Pokhara,33700</p>
+                              <p><i class="fa fa-envelope" aria hidden="true"></i>  hello@hamrokitab.org</p>
+                              <p><i class="fa fa-phone" aria hidden="true"></i>  +977+984-369-6211</p>
+                              <p><i class="fa fa-globe" aria hidden="true"></i>  www.hamrokitab.org</p>
+                          </div>
+                          <div class="col-lg-4 col-md-4">
+                              <h4 class="wow fadeInUp">About</h4>
+                              <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> About Us</p>
+                              <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> Privacy</p>
+                              <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> Terms & Conditions</p>
+                          </div>
+                          <div class="col-lg-4 col-md-4">
+                              <h4 class="wow fadeInUp">Stay In Touch</h4>
+                              <i class="social fa fa-facebook " aria hidden="true"></i>
+                              <i class="social fa fa-twitter " aria hidden="true"></i>
+                              <i class="social fa fa-linkedin " aria hidden="true"></i>
+                              <i class="social fa fa-pinterest " aria hidden="true"></i>
+                              <i class="social fa fa-youtube " aria hidden="true"></i>
+                              <i class="social fa fa-github " aria hidden="true"></i><br>
+                           </div>
+                      </div>
+                  </div>
+              </div>
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+<!-- -------------     this is for the animation-->
+      <script src="{% static 'donate/js/wow.min.js' %}"></script>
+    <script>
+        new WOW().init();
+    </script>
+<!-------------ed animation------------------->
+    <script src="{% static 'donate/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
