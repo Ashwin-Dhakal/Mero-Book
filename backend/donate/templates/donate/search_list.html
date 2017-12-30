@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+You are welcome  {{request.user}} <br><br>
+<a href="{% url 'logout' %}">logout</a><br>
+{% endif %}
+
+{% if not user.is_authenticated %}
+<a href="{% url 'register' %}">register</a>
+<a href="{% url 'login' %}">login</a>
+
+{% endif %}
+<br>
+
+this is the fucking  book list
+
+{% for obj  in queryset_list %}
+    <h3> <a href=' {% url "book_detail" id=obj.id %} '>{{obj.Name}} </a> </h3><br>
+    {{obj.Publisher}}<br>
+    {{obj.Edition}}<br>
+    {{obj.Class}}<br>
+
+{% endfor %}
+
+
+</body>
+</html>

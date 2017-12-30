@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+this is the fucking  book list
+
+{% for obj  in object_list %}
+    <h3> <a href=' {% url "book_detail" id=obj.id %} '>{{obj.Name}} </a> </h3><br>
+   Class: {{obj.Class}}<br>
+   Publisher: {{obj.Publisher}}<br>
+   Edition: {{obj.Edition}}<br>
+
+
+
+{% endfor %}
+</body>
+</html>

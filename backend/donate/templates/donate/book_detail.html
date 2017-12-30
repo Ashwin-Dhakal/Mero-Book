@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if user.is_authenticated %}
+You are welcome  {{request.user}} <br><br>
+<a href="{% url 'logout' %}">logout</a><br>
+{% endif %}
+
+{% if not user.is_authenticated %}
+<a href="{% url 'register' %}">register</a>
+<a href="{% url 'login' %}">login</a>
+
+{% endif %}
+<br>
+This is the detail of the book clicked.<br><br>
+<h3> {{instance.Name}}</h3><br>
+    Class: {{instance.Class}}<br>
+    Publisher: {{instance.Publisher}}<br>
+    Edition: {{instance.Edition}}<br><br>
+    Contributed by: {{instance.user.first_name}}<br>
+    Contributer's Address: {{instance.Your_District}}, {{instance.Ward_number}}<br>
+    Contact him :{{instance.Phone_number}}<br><br><br>
+
+
+{% if instance.user.id == request.user.id %}
+<h3> <a href=' {% url "update" id=instance.id %} '>UPDATE</a> </h3><br>
+{% endif %}
+
+
+
+
+</body>
+</html>

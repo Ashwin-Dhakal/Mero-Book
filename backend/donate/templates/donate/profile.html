@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if user.is_authenticated %}
+You are welcome  {{request.user}}
+<a href="{% url 'logout' %}">logout</a><br>
+{% endif %}
+
+{% if not user.is_authenticated %}
+<a href="{% url 'register' %}">register</a>
+<a href="{% url 'login' %}">login</a>
+
+{% endif %}
+<br>
+<a href="{% url 'donate_book' %}">You can add book here</a>
+
+<br><br><br>
+Books that you donated:
+
+{% for obj  in queryset_list %}
+    <h3> <a href=' {% url "book_detail" id=obj.id %} '>{{obj.Name}} </a> </h3><br>
+     Class: {{obj.Class}}<br>
+    Publisher: {{obj.Publisher}}<br>
+    Edition: {{obj.Edition}}<br>
+{% endfor %}
+
+</body>
+</html>

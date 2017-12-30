@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+these are the top contributer ! fuck them<br><br><br>
+
+
+{% for obj  in queryset_list %}
+    <h3> <a href=' {% url "book_detail" id=obj.id %} '>{{obj.Name}} </a> </h3><br>
+    username :{{obj.user}}<br>
+    ID: {{obj.user.id}}<br>
+    {{obj.Publisher}}<br>
+    {{obj.Edition}}<br>
+    {{obj.Class}}<br>
+
+{% endfor %}
+</body>
+</html>

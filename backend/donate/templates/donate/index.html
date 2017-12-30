@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+You are welcome  {{request.user}}
+<a href="{% url 'profile' %}">Visit Profile</a><br>
+<a href="{% url 'logout' %}">logout</a><br>
+{% endif %}
+
+{% if not user.is_authenticated %}
+<a href="{% url 'register' %}">register</a>
+<a href="{% url 'login' %}">login</a>
+
+{% endif %}
+
+
+You can search Books here:
+
+
+          <form method="GET" action="{% url 'search_list' %}"><br>
+              Book Name:<input type="text" name="q1" placeholder="Science">
+              Class:   <input type="text" name="q2" placeholder="9">
+              District:   <input type="text" name="q3" placeholder="Chitwan">
+              Ward No:   <input type="text" name="q4" placeholder="4">
+              <input type="submit" value="Submit"><br><br>
+          </form>
+<a href="{% url 'donate_book' %}">You can add book here</a>
+<br>
+<br>
+<br>
+<br>
+<a href="{% url 'books_list' %}">You can view all books here</a><br>
+
+<br>
+Total no of users {{ total_users}}<br>
+Total number of books {{total_books}}
+</body>
+</html>
