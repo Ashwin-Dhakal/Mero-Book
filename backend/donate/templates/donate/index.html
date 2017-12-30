@@ -61,7 +61,7 @@
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% endif %}
 
-                    <li><a href="#contact">Contact us</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact us</a></li>
                 </ul>
             </div>
         </div>
@@ -89,101 +89,60 @@
 
    <!-------------------------- End Header --------------------------->
 
-<!---------------------------      searching the hostel---------------------->
+<!---------------------------      searching the book---------------------->
       <form method="GET" action="{% url 'search_list' %}">
       <div id="search" class="search">
           <div class="container">
               <div class="row">
                   <h2 class="wow fadeInUp">Search Books</h2>
-                  <p class="wow fadeInUp" data-wow-delay="0.4s">Search your books here</p>
-
+                  <p class="wow fadeInUp" data-wow-delay="0.2s">Search your books here</p>
 
                   <div class="col-lg-3 col-md-3">
                     <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="0.3s">
                           <span class="input-group-addon" id-sizing-addon1><i class="fa fa-book" aria-hidden="true"></i></span>
-                          <input type="text" name="q1" class="form-control" aria-describeby="sizing-addon1" placeholder="Name of book">
-                    </div>
+                          <input type="text" name="q1" required="" class="form-control" aria-describeby="sizing-addon1" placeholder="Name of book">
+                     </div>
                   </div>
 
 
                   <div class="col-lg-2 col-md-2">
-                    <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="0.4s">
                           <span class="input-group-addon" id-sizing-addon1><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
 <!--                          <input type="text" name="q1" class="form-control" aria-describeby="sizing-addon1" placeholder="class">-->
-                        <select class="form-control"  name = "q2">
+                        <select class="form-control" required="" name = "q2">
                             <option value="" disabled selected>class</option>
-                            <option value = "1">1</option>
-                            <option value = "2">2</option>
-                            <option value = "3">3</option>
-                            <option value = "4">4</option>
-                            <option value = "5">5</option>
-                            <option value = "6">6</option>
-                            <option value = "7">7</option>
-                            <option value = "8">8</option>
-                            <option value = "9">9</option>
-                            <option value = "10">10</option>
-                            <option value = "11">11</option>
-                            <option value = "12">12</option>
+                            {% for i in class_count %}
+                             <option value = "{{i}}">{{i}}</option>
+                            {% endfor %}
+
                         </select>
                     </div>
                   </div>
 
 
                   <div class="col-lg-3">
-                    <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="0.5s">
                           <span class="input-group-addon" id-sizing-addon1><i class="fa fa-street-view" aria-hidden="true"></i></span>
-                          <input type="text" name="q3" class="form-control" aria-describeby="sizing-addon1" placeholder="District">
+                          <input type="text" name="q3" required="" class="form-control" aria-describeby="sizing-addon1" placeholder="District">
                     </div>
                   </div>
 
 
                   <div class="col-lg-2">
-                    <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="1s">
+                    <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="0.7s">
                           <span class="input-group-addon" id-sizing-addon1><i class="fa fa-map-marker" aria-hidden="true"></i></span>
 <!--                          <input type="text" name="q2" class="form-control" aria-describeby="sizing-addon1" placeholder="ward no">-->
-                         <select class="form-control"  name = "q4">
+                         <select class="form-control" required="" name = "q4">
                             <option value="" disabled selected>Ward</option>
-                            <option value = "1">1</option>
-                            <option value = "2">2</option>
-                            <option value = "3">3</option>
-                            <option value = "4">4</option>
-                            <option value = "5">5</option>
-                            <option value = "6">6</option>
-                            <option value = "7">7</option>
-                            <option value = "8">8</option>
-                            <option value = "9">9</option>
-                            <option value = "10">10</option>
-                            <option value = "11">11</option>
-                            <option value = "12">12</option>
-                            <option value = "13">13</option>
-                            <option value = "14">14</option>
-                            <option value = "15">15</option>
-                            <option value = "16">16</option>
-                            <option value = "17">17</option>
-                            <option value = "18">18</option>
-                            <option value = "19">19</option>
-                            <option value = "20">20</option>
-                            <option value = "1">21</option>
-                            <option value = "2">22</option>
-                            <option value = "3">23</option>
-                            <option value = "4">24</option>
-                            <option value = "5">25</option>
-                            <option value = "6">26</option>
-                            <option value = "7">27</option>
-                            <option value = "8">28</option>
-                            <option value = "9">29</option>
-                            <option value = "20">30</option>
-                            <option value = "1">31</option>
-                            <option value = "2">32</option>
-                            <option value = "3">33</option>
-                            <option value = "4">34</option>
-                            <option value = "5">35</option>
-                        </select>
+                            {% for i in ward_count %}
+                             <option value = "{{i}}">{{i}}</option>
+                            {% endfor %}
+                         </select>
                     </div>
                   </div>
 
                   <div class="col-lg-2" >
-                       <button class="btn btn-lg wow fadeInUp" data-wow-delay="1.2s" type="submit"> Search</button>
+                       <button class="btn btn-lg wow fadeInUp" data-wow-delay="0.8s" type="submit"> Search</button>
                   </div>
 
 
@@ -199,8 +158,7 @@
 
       </form>
 
-<!---------------------------      End of searching the hostel---------------------->
-
+<!---------------------------      End of searching the book---------------------->
 
 
       <!------------------------- story1 ------------------------------------>
@@ -210,8 +168,8 @@
               <div class="row">
                   <div class="col-lg-6 col-md-6 ">
                       <h1>Yes I want to help </h1>
-                      <p> A Book Donating platform could be a highly supportive step towards providing needy students presue their dream of good education with rich study books. You could be the one to support and help them. Be Polite, let them use your resources and move on! Happy Sharing  </p>
-                      <button class="btn btn-md btn-hollow"><a href="#search">Register Now</a></button>
+                       <p> A Book Donating platform could be a highly supportive step towards providing needy students presue their dream of good education with rich study books. You could be the one to support and help them. Be Polite, let them use your resources and move on! Happy Sharing  </p>
+                     <button class="btn btn-md btn-hollow"><a href="{% url 'register' %}">Register Now</a></button>
                   </div>
                   <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s" >
                       <img src="{% static 'donate/images/vvv.png' %}" alt="Hamro Kitab">
@@ -229,23 +187,23 @@
               <div class="row">
                   <h2 class="wow fadeInUp">join us</h2>
                   <p class="wow fadeInUp" data-wow-delay="0.4s">We are getting even bigger</p>
-                  <div class="col-lg-4 col-md-4 wow fadeInLeft" data-wow-delay="2s">
+                  <div class="col-lg-4 col-md-4 wow fadeInLeft" data-wow-delay="0.6s">
                       <img src="{% static 'donate/images/rrrr.png' %}" class="img-circle" alt="">
-                      <h4>{{ total_users}}</h4>
+                      <h4>{{total_users}}</h4>
                       <b>Registered Users</b>
                       <p>Join us today and help many students persue their dreams</p>
 
                   </div>
-                  <div class="col-lg-4 col-md-4 wow fadeInLeft" data-wow-delay="1.6s">
+                  <div class="col-lg-4 col-md-4 wow fadeInLeft" data-wow-delay="0.4s">
                       <img src="{% static 'donate/images/rerl.png' %}" class="img-circle" alt="">
                       <h4>{{total_books}} +</h4>
                       <b>Books Donated </b>
                       <p> We wish their wont be any students leaving their schooling just because of lack of text books</p>
 
                   </div>
-                  <div class="col-lg-4 col-md-4 wow fadeInLeft" data-wow-delay="1.2s">
+                  <div class="col-lg-4 col-md-4 wow fadeInLeft" data-wow-delay="0.2s">
                      <img src="{% static 'donate/images/llll.png' %}" class="img-circle" alt="">
-                      <h4>{{ total_users }}</h4>
+                      <h4>{{total_users}}</h4>
                       <b>Students Benifited</b>
                       <p>This number is increasing since you are helping a lots of students </p>
 
@@ -256,46 +214,6 @@
       </div>
 
       <!---END TEAM--->
-
-
-
-
-
-
-
-        <!---Contacts--->
-
-      <div id="contact" class="contact">
-          <div class="container">
-              <div class="row">
-                  <h2 class="wow fadeInUp">Contact</h2>
-                  <p class="wow fadeInUp" data-wow-delay="0.4s">Feel free to contact us any time. We will be glad to hear from you ! !</p>
-                      <div class="col-lg-6 col-md-6 col-xs-12">
-                      <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="0.8s">
-                          <span class="input-group-addon" id-sizing-addon1><i class="fa fa-user" aria hidden="true"></i></span>
-                          <input type="text" class="form-control" aria-describeby="sizing-addon1" placeholder="Full Name">
-                      </div>
-                      <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="1.2s">
-                          <span class="input-group-addon" id-sizing-addon1><i class="fa fa-envelope" aria hidden="true"></i></span>
-                          <input type="text" class="form-control" aria-describeby="sizing-addon1" placeholder="Email-Address">
-                      </div>
-                      <div class="input-group input-group-lg wow fadeInUp" data-wow-delay="1.6s">
-                          <span class="input-group-addon" id-sizing-addon1><i class="fa fa-phone" aria hidden="true"></i></span>
-                          <input type="text" class="form-control" aria-describeby="sizing-addon1" placeholder="Phone Number">
-                      </div>
-                  </div>
-                  <div class="col-lg-6 col-md-6 col-xs-12">
-                      <div class="input-group wow fadeInUp" data-wow-delay="2s">
-                          <textarea name="" id="" cols="80" rows="7" class="form-control"></textarea>
-                      </div>
-                      <button class="btn btn-lg wow fadeInUp" data-wow-delay="2.4s">Submit Your Message</button>
-                  </div>
-              </div>
-           </div>
-      </div>
-
-              <!---End Contact--->
-
 
     <!------------------------- under ------------------------------->
 
@@ -318,7 +236,7 @@
      <!--</div>-->
 
 
-     <!-------------------  under------------------------------>
+     <!-------------------end   under------------------------------>
 
 
               <!---Footer--->
@@ -351,16 +269,6 @@
                       </div>
                   </div>
               </div>
-
-
-
-
-
-
-
-
-
-
 
 
 

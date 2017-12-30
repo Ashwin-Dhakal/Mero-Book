@@ -23,8 +23,11 @@ urlpatterns = [
     # url(r'^book_detail/(?P<id>\d+)/delete/$', donate_views.delete, name="delete"),
 
     url(r'^search_list/$', donate_views.search_list, name='search_list'),
+    url(r'^contact_us/$', donate_views.contact_us, name='contact_us'),
 
     url(r'^profile/$', donate_views.profile, name='profile'),
+    url(r'^success/$', donate_views.success, name='success'),
+
     url(r'^test/$', donate_views.test, name='test'),
     url(r'^contributer_board/$', donate_views.contributer_board, name='contributer_board'),
 

@@ -61,7 +61,7 @@
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% endif %}
 
-                    <li><a href="#contact">Contact us</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact us</a></li>
                 </ul>
             </div>
         </div>
@@ -151,57 +151,15 @@
                           <span class="input-group-addon" id-sizing-addon1><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
                         <select class="form-control" required="" name = "Edition">
                             <option value="" disabled selected>Edition</option>
-                            <option value = "First"
-                                    {% if form.Edition.value == 'First' %}
-                                    selected
-                                    {% endif %}
-                            >First</option>
 
-                           <option value = "Second"
-                                    {% if form.Edition.value == 'Second' %}
+                           {% for i in edition_count %}
+                            <option value="{{i}}"
+                                    {% if form.Edition.value == i %}
                                     selected
                                     {% endif %}
-                            >Second</option>
-                            <option value = "Third"
-                                    {% if form.Edition.value == 'Third' %}
-                                    selected
-                                    {% endif %}
-                            >Third</option>
-                            <option value = "Forth"
-                                    {% if form.Edition.value == 'Forth' %}
-                                    selected
-                                    {% endif %}
-                            >Forth</option>
-                            <option value = "Fifth"
-                                    {% if form.Edition.value == 'Fifth' %}
-                                    selected
-                                    {% endif %}
-                            >Fifth</option>
-                            <option value = "Sixth"
-                                    {% if form.Edition.value == 'Sixth' %}
-                                    selected
-                                    {% endif %}
-                            >Sixth</option>
-                            <option value = "Seventh"
-                                    {% if form.Edition.value == 'Seventh' %}
-                                    selected
-                                    {% endif %}
-                            >Seventh</option>
-                            <option value = "Eighth"
-                                    {% if form.Edition.value == 'Eighth' %}
-                                    selected
-                                    {% endif %}
-                            >Eighth</option>
-                            <option value = "Ninth"
-                                    {% if form.Edition.value == 'Ninth' %}
-                                    selected
-                                    {% endif %}
-                            >Ninth</option>
-                            <option value = "Tenth"
-                                    {% if form.Edition.value == 'Tenth' %}
-                                    selected
-                                    {% endif %}
-                            >Tenth</option>
+                            >{{i}}</option>
+                            {% endfor %}
+
 
                         </select>
 

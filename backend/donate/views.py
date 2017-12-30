@@ -9,6 +9,8 @@ from .models import Details
 from .forms import Donate_Book
 from django.shortcuts import render
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.mail import send_mail, BadHeaderError
+from . import forms
 
 def index(request):
     total_books = Details.objects.all().count()
@@ -16,6 +18,11 @@ def index(request):
     context = {
         "total_books": total_books,
         "total_users": total_users,
+        "ward_count": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+                       27,
+                       28, 29, 30, 31, 32, 33, 34, 35],
+        "class_count": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+
     }
 
     return render(request, 'donate/index.html', context)
@@ -34,6 +41,11 @@ def book_detail(request, id):
     instance = get_object_or_404(Details, id=id)
     context = {
         "instance": instance,
+        "ward_count": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
+                       27, 28, 29, 30, 31, 32, 33, 34, 35],
+        "class_count": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "edition_count": ["First", "Second", "Third", "Forth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"],
+
     }
     return render(request, 'donate/book_detail.html', context)
 
@@ -110,7 +122,8 @@ def donate_book(request):
         "form": form,
         "ward_count": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,
                    28, 29, 30, 31, 32, 33, 34, 35],
-        "class_count": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        "class_count": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        "edition_count": ["First", "Second", "Third", "Forth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth" ],
     }
 
     return render(request, 'donate/donate_book.html', context)
@@ -131,7 +144,9 @@ def donate_book_update(request, id=None):
             "form": form,
             "ward_count": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,
                       27, 28, 29, 30, 31, 32, 33, 34, 35],
-            "class_count": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+            "class_count": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+            "edition_count": ["First", "Second", "Third", "Forth", "Fifth", "Sixth", "Seventh", "Eighth", "Ninth", "Tenth"],
+
         }
         return render(request, 'donate/donate_book.html', context)
     else:
@@ -141,8 +156,10 @@ def donate_book_update(request, id=None):
 
 def test(request):
     queryset = Details.objects.filter(Name__iexact="Q")
+    total_users = User.objects.all().count()
     context = {
         "object_list": queryset,  # this context is the dictionary for impoting the objects of databaset
+        "total_users": total_users,
     }
     return render(request, 'donate/test.html', context)
 
@@ -155,3 +172,22 @@ def test(request):
 #     else:
 #         response = HttpResponse("You dont have permission to do this")
 #         return response
+
+def contact_us(request):
+    if request.method == 'GET':
+        form = forms.ContactForm()
+    else:
+        form = forms.ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['ashwindhakal97@gmail.com'], fail_silently=False)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('success')
+    return render(request, "donate/contact_us.html", {'form': form})
+
+def success(request):
+    return render(request, 'donate/success.html')

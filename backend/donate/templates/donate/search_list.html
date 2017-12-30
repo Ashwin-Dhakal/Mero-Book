@@ -58,7 +58,7 @@
                     <li><a href="{% url 'logout' %}">Logout</a></li>
                     {% endif %}
 
-                    <li><a href="#contact">Contact us</a></li>
+                    <li><a href="{% url 'contact_us' %}">Contact us</a></li>
                 </ul>
             </div>
         </div>
@@ -92,7 +92,15 @@
           <div class="border hvr-float col-lg-3 col-md-3  wow fadeInUp" data-wow-delay="0.1s "> <a href=' {% url "book_detail" id=obj.id %} ' ><h4>{{obj.Name}} </h4><img class="id3h " src="{% static 'donate/images/fav.png' %}"></a><div class="eta"><p><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{obj.Edition}} Edition</p></div> <div class="uta" ><p><i class="fa fa-user" aria-hidden="true"></i> Class: {{obj.Class}} </p></div></div>
 
 {% endfor %}
+          {% if not queryset_list %}
+          <div class="no_book">
+          <p>Sorry, This book not not available at the moment </p>
+          </div>
+          {% endif %}
+
      </div>
+
+
 <!------------pagination ko lagi----------->
 
 

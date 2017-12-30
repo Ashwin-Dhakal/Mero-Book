@@ -1,10 +1,15 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Hamro Kitab</title>
+        <link rel = "stylesheet" href=" {% static 'donate/css/success.css' %}">
+
 </head>
 <body>
-<h1>Success! Email sent.</h1>
+<div class="success">
+    <p>Success! Email was sent </p>
+  <a href="{% url 'index' %}">Back to Home</a>
 </body>
 </html>
