@@ -1,74 +1,13 @@
-<!------------------- From Bootstrap -------------------------------------->\
+{% extends 'donate/base.html' %}
+
 {% load staticfiles %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Hamro Kitab</title>
+{% block baaki_css %}
+<link rel = "stylesheet" href=" {% static 'donate/css/donate_book.css' %}">
+{% endblock %}
 
 
-    <link href="{% static 'donate/css/bootstrap.min.css' %}" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'donate/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-    <link rel = "stylesheet" href="{% static 'donate/css/donate_book.css' %}">
-    <link rel="stylesheet" href="{% static 'donate/css/animate.min.css' %}">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-
-
-
-
-
-<!--------------------NAVIGATION----------------------------->
-
-
-    <div id="myNavbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type = "button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-
-                </button>
-
-                 <a href="{% url 'index' %}" class="navbar-brand">Hamro Kitab</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'donate_book' %}">Donate Book</a></li>
-
-                    {% if user.is_authenticated %}
-                    <li><a href="{% url 'profile' %}">Profile</a></li>
-                    {% endif %}
-
-                    {% if not user.is_authenticated %}
-                    <li><a href="{% url 'register' %}">Register</a></li>
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                    {% endif %}
-
-
-                    {% if user.is_authenticated %}
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
-                    {% endif %}
-
-                    <li><a href="{% url 'contact_us' %}">Contact us</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
- <!------------------------ End Navigation --------------------------->
-
+{% block body %}
 <!---------------------------     mathi ko text---------------------->
       <form method="GET" action="#">
       <div id="mathi" class="mathi">
@@ -77,20 +16,9 @@
                   <h2 class="wow fadeInUp">Donate here</h2>
                   <p class="wow fadeInUp" data-wow-delay="0.4s"><strong>{{request.user}}</strong>, fill up the form and upload your books</p>
 
-
-
-
-
-
-
               </div>
           </div>
       </div>
-
-
-
-
-
       </form>
 
 <!---------------------------      End---------------------->
@@ -109,7 +37,7 @@
               <form method="POST" action="">
                     {% csrf_token %}
 
-            <div id="search" class="search">
+            <div id="fill" class="fill">
 
                 <div class="input-group input-group-lg">
                           <span class="input-group-addon" id-sizing-addon1><i class="fa fa-book" aria-hidden="true"></i></span>
@@ -171,12 +99,16 @@
                           <span class="input-group-addon" id-sizing-addon1><i class="fa fa-graduation-cap" aria-hidden="true"></i></span>
                         <select class="form-control" required="" name = "Status">
                             <option value="" disabled selected>status</option>
-                             {% if form.Status.value %}
-                            <option value="{{form.Status.value}}" selected> {{form.Status.value}}</option>
-                            {% endif %}
-                            <option value = "Open">Open</option>
-                            <option value = "Reserved">Reserved</option>
-
+                              <option value="Open"
+                                    {% if form.Status.value == "Open" %}
+                                    selected
+                                    {% endif %}
+                            >Open</option>
+                              <option value="Reserved"
+                                    {% if form.Status.value == "Reserved" %}
+                                    selected
+                                    {% endif %}
+                            >Reserved</option>
                         </select>
 
 
@@ -211,12 +143,11 @@
 
                <div class="input-group input-group-lg ">
                           <span class="input-group-addon" id-sizing-addon1><i class="fa fa-street-view" aria-hidden="true"></i></span>
-                          <input type="text" name="Phone_number" class="form-control" aria-describeby="sizing-addon1" required="" placeholder="Phone Number"
+                          <input type="tel" name="Phone_number" class="form-control" aria-describeby="sizing-addon1" required="" placeholder="Phone Number"
                                  {% if form.Phone_number.value %}
                                      value="{{form.Phone_number.value}}"
                                 {% endif %}
                                  >
-
 
                     </div>
                 <button class="btn btn-lg " > SUBMIT</button>
@@ -228,9 +159,6 @@
 
           <div class="col-lg-4 col-md-4"></div>
 
-
-
-
      </div>
 
 
@@ -238,57 +166,6 @@
           </div>
 
 
-
-
 <!---------------End  book ko detail---------------------------->
 
-
-  <!---Footer--->
-
-              <div id="footer" class="footer">
-                  <div class="container">
-                      <div class="row">
-                          <div class="col-lg-4 col-md-4">
-                              <h4 class="wow fadeInUp">Contact Us</h4>
-                              <p><i class="fa fa-home" aria hidden="true"></i>  Lamachaur-16,Pokhara,33700</p>
-                              <p><i class="fa fa-envelope" aria hidden="true"></i>  hello@hamrokitab.org</p>
-                              <p><i class="fa fa-phone" aria hidden="true"></i>  +977+984-369-6211</p>
-                              <p><i class="fa fa-globe" aria hidden="true"></i>  www.hamrokitab.org</p>
-                          </div>
-                          <div class="col-lg-4 col-md-4">
-                              <h4 class="wow fadeInUp">About</h4>
-                              <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> About Us</p>
-                              <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> Privacy</p>
-                              <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> Terms & Conditions</p>
-                          </div>
-                          <div class="col-lg-4 col-md-4">
-                              <h4 class="wow fadeInUp">Stay In Touch</h4>
-                              <i class="social fa fa-facebook " aria hidden="true"></i>
-                              <i class="social fa fa-twitter " aria hidden="true"></i>
-                              <i class="social fa fa-linkedin " aria hidden="true"></i>
-                              <i class="social fa fa-pinterest " aria hidden="true"></i>
-                              <i class="social fa fa-youtube " aria hidden="true"></i>
-                              <i class="social fa fa-github " aria hidden="true"></i><br>
-                           </div>
-                      </div>
-                  </div>
-              </div>
-
-
-
-
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-
-<!-- -------------     this is for the animation-->
-      <script src="{% static 'donate/js/wow.min.js' %}"></script>
-    <script>
-        new WOW().init();
-    </script>
-<!-------------ed animation------------------->
-    <script src="{% static 'donate/js/bootstrap.min.js' %}"></script>
-  </body>
-</html>
+{% endblock %}

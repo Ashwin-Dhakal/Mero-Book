@@ -11,13 +11,13 @@
     <title>Hamro Kitab</title>
 
 
-      <!--{% static 'css/stylesheet.css' %}-->
-
-
     <link rel="stylesheet" href="{% static 'donate/css/bootstrap.min.css' %}" >
     <link rel="stylesheet" href="{% static 'donate/font-awesome-4.7.0/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'donate/css/animate.min.css' %}">
     <link rel = "stylesheet" href=" {% static 'donate/css/stylesheet.css' %}">
+                {% block baaki_css %}
+                {% endblock %}
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -70,27 +70,33 @@
  <!------------------------ End Navigation --------------------------->
 
 
+{% block body %}
+{% endblock %}
 
-
-              <!---Footer--->
+<!------------------------Footer------------------------------------->
 
               <div id="footer" class="footer">
                   <div class="container">
                       <div class="row">
-                          <div class="col-lg-4 col-md-4">
+                          <div class="col-lg-4 col-md-4 footerko">
                               <h4 class="wow fadeInUp">Contact Us</h4>
                               <p><i class="fa fa-home" aria hidden="true"></i>  Lamachaur-16,Pokhara,33700</p>
                               <p><i class="fa fa-envelope" aria hidden="true"></i>  hello@hamrokitab.org</p>
-                              <p><i class="fa fa-phone" aria hidden="true"></i>  +977+984-369-6211</p>
+                              <p><i class="fa fa-phone" aria hidden="true"></i>  +977+984-561-2181</p>
                               <p><i class="fa fa-globe" aria hidden="true"></i>  www.hamrokitab.org</p>
                           </div>
-                          <div class="col-lg-4 col-md-4">
-                              <h4 class="wow fadeInUp">About</h4>
-                              <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> About Us</p>
-                              <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> Privacy</p>
-                              <p><i class="fa fa-thumb-tack" aria-hidden="true"></i> Terms & Conditions</p>
+                          <div class="col-lg-4 col-md-4 footerko">
+
+                              <p>|</p>
+                              <p>|</p>
+                              <p>|</p>
+                              <p>|</p>
+                              <p>|</p>
+
+
+
                           </div>
-                          <div class="col-lg-4 col-md-4">
+                          <div class="col-lg-4 col-md-4 footerko">
                               <h4 class="wow fadeInUp">Stay In Touch</h4>
                               <i class="social fa fa-facebook " aria hidden="true"></i>
                               <i class="social fa fa-twitter " aria hidden="true"></i>

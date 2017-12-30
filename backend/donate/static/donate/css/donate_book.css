@@ -1,92 +1,3 @@
-/*-------sabai default css for the rest of the index-----------*/
-* {
-    
-    padding:0;
-    margin: 0;
-}
-
-body{
-    overflow-x: hidden;
-    font-family: 'Open Sans', sans-serif;
-    text-rendering: optimizeLegibility !important;
-    -webkit-font-smoothing: antialiased !important;
-}
-
-li{
-    
-    list-style: none;
-    display: inline-block
-}
-
-a {
-    
-    text-decoration: none;
-    transition: all 500ms ease-in-out;
-}
-
-a:hover,
-a:active {
-    
-        text-decoration: none;
-}
-
-h1,
-h2,
-h4 {
-    font-family: 'PT Sans Narrow', Arial, sans-serif;
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-p {
-    font-size: 15px;
-    line-height: 21px;
-}
-
-.btn {
-    
-    transition: all 300ms ease-in-out;
-    font-weight: 500 !important;
-    text-transform: uppercase;
-}
-
-.btn:hover {
-     
-    background-color:  #ededed !important;
-    color: #3c3c3c !important;
-    border: 1px solid #fff !important;
-}
-
-
-/*---------------- NAVIGATION ------------------*/
-
-
-.navbar {
-    
-    background-color: #222222 !important;
-    text-transform: uppercase;
-    font-family: 'PT Sans Narrow', Arial, sans-serif;
-/*    font-weight: 700;*/
-}
-
-.navbar a {
-    
-    color: #fff !important;
-/*    opacity: 0.7;*/
-}
-
-
-.navbar a:hover {
-    
-    color: red !important;
-    opacity: 1;
-    background-color: #111111 !important;
-}
-
-
-/*---------End navogation-----------------------*/
-
-
 /*------------mathi ko text-----------------*/
 .mathi {
 /*    background-image:url(../images/search_bgk.jpg);*/
@@ -152,7 +63,6 @@ p {
      color: #fff;
 
 
-    
 }
 
 .book_ko_detail i{
@@ -175,44 +85,44 @@ p {
 /*---------------Details wala form ----------------*/
 
 
-/*.search is actually filling the form*/
+/*.fill is actually filling the form*/
 
 
-.search {
+.fill {
     text-align: center;
     padding: 50px 0 30px;
 
 }
 
-.search p {
+.fill p {
     
     padding-bottom: 20px;
     color: #737373;
     
 }
 
-.search h2 {
+.fill h2 {
     
     color: #777;
     margin: 20px 0 20px;
 }
 
-.search .input-group {
+.fill .input-group {
     margin-top: 0px;
     margin-bottom: 15px;
 }
 
-.search .form-control {
+.fill .form-control {
     
     border-radius: 0 !important;
 }
 
-.search .span {
+.fill .span {
     
     border-radius: 0 !important;
 }
 
-.search .btn {
+.fill .btn {
     margin-top: 0px;
     padding-left:0px;
     border-radius: 0;
@@ -223,64 +133,11 @@ p {
     color: #fff;
 }
 
-.search .btn:hover {
+.fill .btn:hover {
     
     background-color: #a85959 !important; 
     color: #fff !important;
 }
 
 
-
 /*---------------search tab in the top ----------------*/
-
-
-
-
-
-
-/*---------------- FOOTER -----------------------*/
-
-.footer {
-/*    margin-top: 20px;*/
-    padding: 40px;
-    color: #cccccc;
-    background-color: #222222;
-}
-.footer h4{
-        color: red;
-
-
-}
-
-.footer .social {
-    
-    font-size: 20px;
-    height: 30px;
-    width: 30px;
-    text-align: center;
-    padding: 5px;
-/*    border: 1px solid #cccccc;*/
-    margin-bottom: 10px;
-    color: red;
-    margin-right: 5px;
-}
-
-
-.footer input {
-    
-    height: 40px;
-    width: 220px;
-    padding: 5px;
-    border: none;
-    background-color: #cccccc;
-    color: #000;
-}
-
-.footer .btn {
-    text-align: center;
-    background-color: red;
-    height: 40px;
-    padding: 10px 5px 10px;
-    margin: -3px 0 0 5px;
-    color:white;
-}

@@ -12,21 +12,21 @@ body, html{
 }
 
 .main{
- 	margin-top: 0px;
+ 	margin-top: 10px;
+ 	margin-bottom: 30px;
 }
 
 /*
-h1.title { 
+h1.title {
 	font-size: 50px;
-	font-family: 'Passion One', cursive; 
-	font-weight: 400; 
+	font-family: 'Passion One', cursive;
+	font-weight: 400;
 }
 */
 /*mathi ko logo*/
 .mathi{
     height: 120px;
     width: 120px;
-    margin-top: 0px;
     margin-bottom: 5px;
 }
  img {
