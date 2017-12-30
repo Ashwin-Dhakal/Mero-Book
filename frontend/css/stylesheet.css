@@ -1,0 +1,531 @@
+/*-------sabai default css for the rest of the index-----------*/
+* {
+    
+    padding:0;
+    margin: 0;
+}
+
+body{
+    overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+    text-rendering: optimizeLegibility !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+li{
+    
+    list-style: none;
+    display: inline-block
+}
+
+a {
+    
+    text-decoration: none;
+    transition: all 500ms ease-in-out;
+}
+
+a:hover,
+a:active {
+    
+        text-decoration: none;
+}
+
+h1,
+h2,
+h4 {
+    font-family: 'PT Sans Narrow', Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+p {
+    font-size: 15px;
+    line-height: 21px;
+}
+
+.btn {
+    
+    transition: all 300ms ease-in-out;
+    font-weight: 500 !important;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+     
+    background-color:  #ededed !important;
+    color: #3c3c3c !important;
+    border: 1px solid #fff !important;
+}
+
+
+/*---------------- NAVIGATION ------------------*/
+
+
+.navbar {
+    
+    background-color: #222222 !important;
+    text-transform: uppercase;
+    font-family: 'PT Sans Narrow', Arial, sans-serif;
+/*    font-weight: 700;*/
+}
+
+.navbar a {
+    
+    color: #fff !important;
+/*    opacity: 0.7;*/
+}
+
+
+.navbar a:hover {
+    
+    color: red !important;
+    opacity: 1;
+    background-color: #111111 !important;
+}
+
+
+/*if ligged in */
+/*
+
+.logged{
+    background-color: black;
+    height: 50px;
+}
+*/
+
+
+
+
+/*if ligged in */
+
+
+/*-------------------------Header------------------*/
+
+.header{
+    
+    height: 600px;
+    width: 100%;
+    padding: 100px 0 30px;
+    margin-top: 5px;
+    background-image: url(../images/yyyy.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+
+.header img{
+    
+    height: 350px;
+    width: 350px;
+/*    margin: 40px 0 0 20px;*/
+    display: block;
+    margin: 0 auto;
+}
+
+.header h1 {
+    
+    font-size: 40px;
+    font-weight: 700;
+    padding-top: 60px;
+}
+
+.header h1,
+.header p,
+.header button {
+    
+    margin-top: 30px;
+    text-align: justify;
+    
+    
+}
+
+
+
+.header .btn {
+    
+/*    border-radius: 0;*/
+    margin: 40px 20px;
+}
+
+
+@media(max-width:768px) {
+    
+    .header {
+        
+        padding: 30px;
+        height: 750px;
+    }
+    
+    .header img {
+         
+        width: 90%;
+        height: 300px;
+        margin: 20px 0 0 20px;
+    }
+    
+    .header .btn {
+        
+        font-size: 15px;
+        margin-left: 20px;
+    }
+    
+    .header h1 {
+        
+        font-size: 20px;
+    }
+    
+    .header p {
+        
+        font-size: 15px;
+    }
+}
+
+/*-------------search for the book-----------*/
+
+.search {
+    background-image:url(../images/search_bgk.jpg);
+    padding: 50px 0 80px;
+    text-align: center;
+}
+
+.search p {
+    
+    padding-bottom: 80px;
+    color: #737373;
+    
+}
+
+.search h2 {
+    
+    color: #777;
+    margin: 20px 0 20px;
+}
+
+.search .input-group {
+    
+    margin-bottom: 25px;
+}
+
+.search .form-control {
+    
+    border-radius: 0 !important;
+}
+
+.search .span {
+    
+    border-radius: 0 !important;
+}
+
+.search .btn {
+    padding-left:0px;
+    border-radius: 0;
+/*    width: 100%;*/
+    width: 130px;
+    font-size: 15px;
+    background-color: #f08080;
+    color: #fff;
+}
+
+.search .btn:hover {
+    
+    background-color: #a85959 !important; 
+    color: #fff !important;
+}
+
+
+/*-------------------------story1------------------*/
+
+.story1{
+    
+    height: 600px;
+    width: 100%;
+    padding: 100px 0 30px;
+    margin-top: 0px;
+    background-color: white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+
+.story1 img{
+    
+    height: 400px;
+    width: 600px;
+    margin-right: 10px;
+/*    margin: 70px 0 0 40px;*/
+}
+
+.story1 h1 {
+    
+    font-size: 40px;
+    font-weight: 500;
+    color: darkgray;
+    padding-top: 50px;
+}
+
+
+.story1 p,
+.story1 button {
+    
+    margin-top: 30px;
+    margin-top: 30px;
+    color: #777;
+    text-align: justify;
+/*    color: darkgray;*/
+
+    font-size: 15px;
+    line-height: 24px;
+    font-family: font-family: 'Open Sans',"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.story1 .btn {
+    
+/*    border-radius: 0;*/
+    margin: 40px 20px;
+}
+
+
+@media(max-width:768px) {
+    
+    .story1 {
+        
+        padding: 30px;
+        height: 750px;
+    }
+    
+    .story1 img {
+         
+        width: 90%;
+        height: 300px;
+        margin: 20px 0 0 20px;
+    }
+    
+    .story1 .btn {
+        
+        font-size: 15px;
+        margin-left: 20px;
+    }
+    
+    .story1 h1 {
+        
+        font-size: 20px;
+    }
+    
+    .story1 p {
+        
+        font-size: 15px;
+    }
+}
+
+
+
+
+/*---------------- TEAM  changed to join us------------------------*/
+
+.team {
+    background-color:#f4f7fc;
+    padding: 50px 0 80px;
+    text-align: center;
+    
+    
+}
+
+.team b,
+.team h2,
+.team h4 {
+    color: red;
+/*    color: #fff;*/
+    margin: 20px 0 20px;
+    color: #777;
+/*    color: #4c4c4c;*/
+}
+
+.team p {
+    color: #737373;
+}
+
+.team img {
+     
+    height: 150px;
+    width: 150px;
+    margin-top: 80px;
+}
+
+.team i {
+    
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    font-size: 17px;
+    border-radius: 50px;
+    background-color: dimgrey;
+    color: white;
+}
+
+.team a:hover i {
+    
+    background-color: #709963;
+}
+
+
+
+/*-------------------- CONTACT--------------------------- */
+
+.contact {
+    
+    padding: 50px 0 80px;
+    text-align: center;
+}
+
+.contact p {
+    
+    padding-bottom: 80px;
+    color: #737373;
+}
+
+.contact h2 {
+    
+    color: #4c4c4c;
+    margin: 20px 0 20px;
+}
+
+.contact .input-group {
+    
+    margin-bottom: 25px;
+}
+
+.contact .form-control {
+    
+    border-radius: 0 !important;
+}
+
+.contact .span {
+    
+    border-radius: 0 !important;
+}
+
+.contact .btn {
+    
+    border-radius: 0;
+    width: 100%;
+    font-size: 15px;
+    background-color: #f08080;
+    color: #fff;
+}
+
+.contact .btn:hover {
+    
+    background-color: #a85959 !important; 
+    color: #fff !important;
+}
+
+
+
+/* -------------project under-------------- */
+/*
+.c4n{
+    
+    height: 320px;
+    width: 100%;
+    padding: 100px 0 30px;
+    margin-top: 0px;
+    background-image: url(../images/pexels-photo-316466.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+.c4n_logo{
+    
+
+    height: 150px;
+    width: 350px;
+
+}
+    
+    .c4n {
+        
+    padding: 20px 0 20px;
+    text-align: center;
+}
+
+
+
+.c4n h1,
+.c4n h4 {
+    
+    color: #777;
+    margin: 20px 0 20px;
+}
+
+
+.c4n p {
+    
+    color: #777;
+    font-size: 14px;
+    padding-bottom: 40px;
+}
+
+
+
+@media(max-width:768px) {
+    
+    .c4n {
+        
+        padding: 30px;
+    }
+}
+*/
+
+
+
+/*---------------- FOOTER -----------------------*/
+
+.footer {
+    
+    padding: 30px;
+    color: #cccccc;
+    background-color: #222222;
+}
+.footer h4{
+        color: red;
+
+
+}
+
+.footer .social {
+    
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    padding: 5px;
+/*    border: 1px solid #cccccc;*/
+    margin-bottom: 10px;
+    color: red;
+    margin-right: 5px;
+}
+
+
+.footer input {
+    
+    height: 40px;
+    width: 220px;
+    padding: 5px;
+    border: none;
+    background-color: #cccccc;
+    color: #000;
+}
+
+.footer .btn {
+    text-align: center;
+    background-color: red;
+    height: 40px;
+    padding: 10px 5px 10px;
+    margin: -3px 0 0 5px;
+    color:white;
+}

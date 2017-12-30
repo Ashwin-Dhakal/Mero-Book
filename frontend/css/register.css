@@ -1,0 +1,92 @@
+
+body, html{
+/*     height: 100%;*/
+/* 	background-repeat: no-repeat;*/
+/* 	background-color: #d3d3d3;*/
+/*    background-image: url(../images/blake-richard-verdoorn-23459.jpg);*/
+    background-color: #f7faff;
+ 	font-family: 'Oxygen', sans-serif;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.main{
+ 	margin-top: 0px;
+}
+
+/*
+h1.title { 
+	font-size: 50px;
+	font-family: 'Passion One', cursive; 
+	font-weight: 400; 
+}
+*/
+/*mathi ko logo*/
+.mathi{
+    height: 120px;
+    width: 120px;
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+ img {
+    display: block;
+    margin: 0 auto;
+}
+
+p{
+    font-size: 12px;
+}
+hr{
+	width: 10%;
+	color: #fff;
+}
+
+.form-group{
+	margin-bottom: 15px;
+}
+
+label{
+	margin-bottom: 15px;
+}
+
+input,
+input::-webkit-input-placeholder {
+    font-size: 13px;
+    padding-top: 3px;
+}
+
+.main-login{
+ 	background-color: #fff;
+    opacity: 0.8;
+    /* shadows and rounded borders */
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+}
+
+/*teha bhitra ko box haru*/
+.main-center{      
+ 	margin-top: 30px;
+ 	margin: 0 auto;
+ 	max-width: 330px;
+    padding: 40px 40px;
+
+}
+
+.login-button{
+	margin-top: 5px;
+}
+
+.login-register{
+	font-size: 11px;
+	text-align: center;
+}
+
+
+/*-----------End book detail ko---------------------------*/
+
