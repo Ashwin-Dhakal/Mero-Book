@@ -410,9 +410,9 @@ color: white;
 
 
 /* -------------project under-------------- */
-/*
+
 .c4n{
-    
+
     height: 320px;
     width: 100%;
     padding: 100px 0 30px;
@@ -424,15 +424,15 @@ color: white;
     color: #fff;
 }
 .c4n_logo{
-    
+
 
     height: 150px;
     width: 350px;
 
 }
-    
+
     .c4n {
-        
+
     padding: 20px 0 20px;
     text-align: center;
 }
@@ -441,14 +441,14 @@ color: white;
 
 .c4n h1,
 .c4n h4 {
-    
+
     color: #777;
     margin: 20px 0 20px;
 }
 
 
 .c4n p {
-    
+
     color: #777;
     font-size: 14px;
     padding-bottom: 40px;
@@ -457,13 +457,13 @@ color: white;
 
 
 @media(max-width:768px) {
-    
+
     .c4n {
-        
+
         padding: 30px;
     }
 }
-*/
+
 
 
 

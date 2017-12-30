@@ -1,4 +1,4 @@
-<!------------------- From Bootstrap -------------------------------------->\
+<!------------------- From Bootstrap -------------------------------------->
 {% load staticfiles %}
 
 <!DOCTYPE html>
@@ -14,8 +14,9 @@
 
     <link href="{% static 'donate/css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'donate/font-awesome-4.7.0/css/font-awesome.min.css' %}">
-    <link rel = "stylesheet" href="{% static 'donate/css/profile.css' %}">
     <link rel="stylesheet" href="{% static 'donate/css/animate.min.css' %}">
+    <link rel = "stylesheet" href="{% static 'donate/css/profile.css' %}">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -99,7 +100,25 @@
 {% endfor %}
 
 
-     </div>
+</div>
+            <!------------pagination ko lagi----------->
+<div class="pagin">
+    <span class="step-links">
+        {% if queryset_list.has_previous %}
+            <a href="?page=1">&laquo; first | </a>
+            <a href="?page={{ queryset_list.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ queryset_list.number }} of {{ queryset_list.paginator.num_pages }}.
+        </span>
+
+        {% if queryset_list.has_next %}
+            <a href="?page={{ queryset_list.next_page_number }}">next</a>
+            <a href="?page={{ queryset_list.paginator.num_pages }}">| last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 
 
       </div>

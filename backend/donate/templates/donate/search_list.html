@@ -13,8 +13,8 @@
 
     <link href="{% static 'donate/css/bootstrap.min.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'donate/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'donate/css/animate.min.css' %}">
     <link rel = "stylesheet" href="{% static 'donate/css/search_list.css' %}">
-    <link rel="stylesheet" href="{% static 'donate/css/animate.min.css' %}">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -93,6 +93,26 @@
 
 {% endfor %}
      </div>
+<!------------pagination ko lagi----------->
+
+
+
+<div class="pagin">
+
+        {% if queryset_list.has_previous %}
+            <a href="?{{ page_request_var }}={{ queryset_list.previous_page_number }}&q1={{ request.GET.q1 }}&q2={{ request.GET.q2 }}&q3={{ request.GET.q3 }}&q4={{ request.GET.q4 }}">previous |</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ queryset_list.number }} of {{ queryset_list.paginator.num_pages }}.
+        </span>
+
+        {% if queryset_list.has_next %}
+            <a href="?{{ page_request_var }}={{ queryset_list.next_page_number }}&q1={{ request.GET.q1 }}&q2={{ request.GET.q2 }}&q3={{ request.GET.q3 }}&q4={{ request.GET.q4 }}">| next</a>
+        {% endif %}
+    </span>
+
+</div>
 
 
       </div>

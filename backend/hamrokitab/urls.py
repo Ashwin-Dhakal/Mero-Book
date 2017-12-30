@@ -20,7 +20,7 @@ urlpatterns = [
     url(r'^donate_book/$', donate_views.donate_book, name='donate_book'), # name="" kaam lagne ahref bata redirect garna ho
     url(r'^book_detail/(?P<id>\d+)/$', donate_views.book_detail, name = "book_detail"),
     url(r'^book_detail/(?P<id>\d+)/update/$', donate_views.donate_book_update, name = "update"),
-    url(r'^book_detail/(?P<id>\d+)/delete/$', donate_views.delete, name="delete"),
+    # url(r'^book_detail/(?P<id>\d+)/delete/$', donate_views.delete, name="delete"),
 
     url(r'^search_list/$', donate_views.search_list, name='search_list'),
 

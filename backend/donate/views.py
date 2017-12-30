@@ -7,7 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Details
 from .forms import Donate_Book
-
+from django.shortcuts import render
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
     total_books = Details.objects.all().count()
@@ -21,7 +22,7 @@ def index(request):
 
 
 def books_list(request):
-    queryset = Details.objects.all()
+    queryset = Details.objects.all().order_by("-id")
     context = {
         "object_list": queryset,  # this context is the dictionary for impoting the objects of databaset
     }
@@ -39,9 +40,21 @@ def book_detail(request, id):
 
 @login_required(login_url='/login/')
 def profile(request):
-    queryset_list = Details.objects.filter(user_id=request.user.id)
+    queryset_list = Details.objects.filter(user_id=request.user.id).order_by("-id")
+    paginator = Paginator(queryset_list, 8)  # Show 25 contacts per page
+    page_request_var = "page"
+    page = request.GET.get(page_request_var)
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        queryset = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        queryset = paginator.page(paginator.num_pages)
     context = {
-        "queryset_list": queryset_list,
+        "queryset_list": queryset,
+        "page_request_var": page_request_var
     }
     return render(request, 'donate/profile.html', context)
 
@@ -52,20 +65,32 @@ def contributer_board(request):
 
 @login_required(login_url='/login/')
 def search_list(request):
-    query1 = str.lower(request.GET.get('q1'))
+    query1 = request.GET.get('q1')
     query2 = request.GET.get('q2')
-    query3 = str.lower(request.GET.get('q3'))
+    query3 = request.GET.get('q3')
     query4 = request.GET.get('q4')
     only_open = Details.objects.filter(Status="Open")
     if query1 and query2 and query3 and query4:
         queryset_list = only_open.filter(
-            Q(Name=query1) &
+            Q(Name__iexact=query1) &
             Q(Class=query2) &
-            Q(Your_District=query3) &
+            Q(Your_District__iexact=query3) &
             Q(Ward_number=query4)
         ).distinct()
+        paginator = Paginator(queryset_list, 4)  # Show 25 contacts per page
+        page_request_var = "page"
+        page = request.GET.get(page_request_var)
+        try:
+            queryset = paginator.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            queryset = paginator.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            queryset = paginator.page(paginator.num_pages)
         context = {
-            "queryset_list": queryset_list,
+            "queryset_list": queryset,
+            "page_request_var": page_request_var
         }
         return render(request, 'donate/search_list.html', context)
     else:
@@ -115,18 +140,18 @@ def donate_book_update(request, id=None):
 
 
 def test(request):
-    queryset = Details.objects.filter(Status="Open")
+    queryset = Details.objects.filter(Name__iexact="Q")
     context = {
         "object_list": queryset,  # this context is the dictionary for impoting the objects of databaset
     }
     return render(request, 'donate/test.html', context)
 
-
-def delete(request, id=None):
-    instance = get_object_or_404(Details, id=id)
-    if request.user.is_authenticated() and instance.user.id == request.user.id:
-        instance.delete()
-        return redirect("books_list")
-    else:
-        response = HttpResponse("You dont have permission to do this")
-        return response
+#
+# def delete(request, id=None):
+#     instance = get_object_or_404(Details, id=id)
+#     if request.user.is_authenticated() and instance.user.id == request.user.id:
+#         instance.delete()
+#         return redirect("books_list")
+#     else:
+#         response = HttpResponse("You dont have permission to do this")
+#         return response

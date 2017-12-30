@@ -117,7 +117,7 @@ p {
 /*-----------------End text before listing-----------------*/
 
 
-/*---------Hostel ko list haru----------------------------*/
+/*---------book ko list haru----------------------------*/
 
 .hostel_ko_list .border{
     width: 275px;
@@ -164,9 +164,14 @@ p {
     height: 200px;
     margin-bottom: 10px;
 }
-/*-----------End Hostel ko list haru---------------------------*/
+/*-----------End book ko list haru---------------------------*/
 
 
+/*------paginator haru--------*/
+.pagin{
+    margin: 20px 0;
+    text-align:center;
+}
 
 /*---------------- FOOTER -----------------------*/
 
