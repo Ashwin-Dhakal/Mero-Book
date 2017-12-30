@@ -39,5 +39,36 @@ You can search Books here:
 <br>
 Total no of users {{ total_users}}<br>
 Total number of books {{total_books}}
+
+
+
+<h1>Contact Us</h1>
+<form method="post" class="jscript">
+    {% csrf_token %}
+   email: <input type="email" name="from_email" >
+   Subject: <input type="text" name="subject" >
+   Message: <textarea name="message"></textarea>
+
+
+    <div class="form-actions">
+      <button id="jjscript" >Send</button>
+    </div>
+</form>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script>
+   $(document).ready(function(){
+    $('.jscript').submit(function(){
+        if($('.jscript')[0].checkValidity()){
+            $('#jjscript').text('Sending');
+            $('#jjscript').attr('disabled', true);
+        }
+    });
+   });
+</script>
 </body>
 </html>

@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^search_list/$', donate_views.search_list, name='search_list'),
 
     url(r'^profile/$', donate_views.profile, name='profile'),
+    url(r'^success/$', donate_views.success, name='success'),
+
     url(r'^contributer_board/$', donate_views.contributer_board, name='contributer_board'),
 
 ]

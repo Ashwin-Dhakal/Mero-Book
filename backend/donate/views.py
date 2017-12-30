@@ -7,6 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Details
 from .forms import Donate_Book
+from django.core.mail import send_mail, BadHeaderError
+from . import forms
 
 
 def index(request):
@@ -110,5 +112,26 @@ def delete(request, id=None):
         response= HttpResponse("You dont have permission to do this")
         return response
 
+
+# pachi add gareko
+
+def index(request):
+    if request.method == 'GET':
+        form = forms.ContactForm()
+    else:
+        form = forms.ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['from_email']
+            message = form.cleaned_data['message']
+            try:
+                send_mail(subject, message, from_email, ['ashwindhakal97@gmail.com'], fail_silently=False)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+            return redirect('success')
+    return render(request, "donate/index.html", {'form': form})
+
+def success(request):
+    return HttpResponse('Success! Thank you for your message.')
 
 
