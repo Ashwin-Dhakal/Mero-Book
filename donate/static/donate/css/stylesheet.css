@@ -82,7 +82,10 @@ p {
     opacity: 1;
     background-color: #111111 !important;
 }
-
+.beta{
+    height: 50px;
+    width: 50px;
+}
 
 
 /*-------------------------Header------------------*/
