@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6313f400-b624-436b-9e12-43801723b0f8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/donate/static/donate/css/donate_book.css" afterPath="$PROJECT_DIR$/donate/static/donate/css/donate_book.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/donate/static/donate/css/register.css" afterPath="$PROJECT_DIR$/donate/static/donate/css/register.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/donate/templates/donate/login.html" afterPath="$PROJECT_DIR$/donate/templates/donate/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/donate/templates/donate/register.html" afterPath="$PROJECT_DIR$/donate/templates/donate/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/donate/static/donate/css/stylesheet.css" afterPath="$PROJECT_DIR$/donate/static/donate/css/stylesheet.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,6 +19,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
               <caret line="19" column="7" lean-forward="true" selection-start-line="19" selection-start-column="7" selection-end-line="19" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="stylesheet.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/donate/static/donate/css/stylesheet.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="374" column="0" lean-forward="true" selection-start-line="374" selection-start-column="0" selection-end-line="374" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -87,7 +94,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/donate/templates/donate/test.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
@@ -115,7 +122,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/donate/static/donate/css/stylesheet.css" />
         <option value="$PROJECT_DIR$/donate/templates/donate/base.html" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/runtime.txt" />
@@ -125,6 +131,7 @@
         <option value="$PROJECT_DIR$/donate/static/donate/css/donate_book.css" />
         <option value="$PROJECT_DIR$/donate/templates/donate/login.html" />
         <option value="$PROJECT_DIR$/donate/templates/donate/register.html" />
+        <option value="$PROJECT_DIR$/donate/static/donate/css/stylesheet.css" />
       </list>
     </option>
   </component>
@@ -522,14 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/donate/static/donate/css/stylesheet.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6368">
-          <caret line="69" column="1" lean-forward="true" selection-start-line="69" selection-start-column="1" selection-end-line="69" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/donate/static/donate/css/success.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -678,6 +677,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/donate/static/donate/css/stylesheet.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="374" column="0" lean-forward="true" selection-start-line="374" selection-start-column="0" selection-end-line="374" selection-end-column="0" />
           <folding />
         </state>
       </provider>
