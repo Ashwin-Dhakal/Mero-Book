@@ -20,10 +20,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'o)6a%&)zaco+z_qm#9m^@58_%7ov04ax6fx5$9fal7x-4=fk^g'
+# SECRET_KEY = 'o)6a%&)zaco+z_qm#9m^@58_%7ov04ax6fx5$9fal7x-4=fk^g'
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'o)6a%&)zaco+z_qm#9m^@58_%7ov04ax6fx5$9fal7x-4=fk^g')
+
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = False
+DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
 ALLOWED_HOSTS = []
 
@@ -45,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -127,7 +133,7 @@ STATIC_URL = '/static/'
 #     os.path.join(BASE_DIR, "static"),
 #     # '/var/www/static/',
 # ]
-# STATIC_ROOT = os.path.join((BASE_DIR), "static_cdn")
+STATIC_ROOT = os.path.join((BASE_DIR), "static_cdn")
 # MEDIA_URL= "/media/"
 # MEDIA_ROOT = os.path.join((BASE_DIR), "media_cdn")
 
@@ -139,3 +145,11 @@ EMAIL_HOST_USER = 'ashwin@techunboxin.com'
 EMAIL_HOST_PASSWORD = '%%%this is what i c0ll ridiculous maN_N'
 EMAIL_USE_TLS = True
 
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+
+# Simplified static file serving.
+# https://warehouse.python.org/project/whitenoise/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
