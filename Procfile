@@ -1,1 +1,1 @@
-web: gunicorn locallibrary.wsgi --log-file -
+web: gunicorn hamrokitab-book-donating-web-app.wsgi --log-file -
