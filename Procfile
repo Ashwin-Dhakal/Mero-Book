@@ -1,1 +1,1 @@
-web: gunicorn immense-refuge-52841.wsgi --log-file -
+web: gunicorn hamrokitab.wsgi --log-file -
