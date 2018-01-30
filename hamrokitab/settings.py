@@ -30,7 +30,10 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'o)6a%&)zaco+z_qm#9m^@58_%7ov04
 # DEBUG = False
 DEBUG = bool( os.environ.get('DJANGO_DEBUG', True) )
 
+<<<<<<< Updated upstream
 # ALLOWED_HOSTS = ['immense-refuge-52841.herokuapp.com','127.0.0.1']
+=======
+>>>>>>> Stashed changes
 ALLOWED_HOSTS = ['vast-spire-56422.herokuapp.com/','127.0.0.1']
 
 
